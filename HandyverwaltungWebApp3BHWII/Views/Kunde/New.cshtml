@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Kunde Übersicht";
+}
+
+<h1>Neue Kunden erstellen</h1>
+
+<form action="/Kunde/SaveKunde" method="post">
+    <table class="table">
+    
+        <thead>
+
+        <tr>
+            <td>Bezeichnung</td>
+            <td>Eingabe</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Vorname</td>
+            <td><input type="text" id="Vorname" name="Vorname"></td>
+        </tr>
+        <tr>
+            <td>Nachname</td>
+            <td><input type="text" id="Nachname" name="Nachname"></td>
+        </tr>
+        <tr>
+            <td>Postleitzahl</td>
+            <td><input type="text" id="Postleitzahl" name="Postleitzahl"></td>
+        </tr>
+        <tr>
+            <td>Strasse</td>
+            <td><input type="text" id="Strasse" name="Strasse"></td>
+        </tr>
+        <tr>
+            <td>Hausnummer</td>
+            <td><input type="text" id="Hausnummer" name="Hausnummer"></td>
+        </tr>
+        <tr>
+            <td>Geburtsdatum</td>
+            <td><input type="date" id="Geburtsdatum" name="Geburtsdatum"></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="/Kunde" class="btn btn-danger">Abbrechen</a>
+            </td>
+            <td>
+                <button class="btn btn-success" type="submit">Speichern</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>

@@ -16,10 +16,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        KundeRepository repo = new KundeRepository();
-        List<Kunde> myKunde = repo.GetAllKunden();
-        
-        return View(myKunde);
+        return View();
     }
 
     public IActionResult Privacy()

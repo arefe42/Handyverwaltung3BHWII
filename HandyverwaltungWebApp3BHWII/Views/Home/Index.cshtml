@@ -3,38 +3,4 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
-<h1>Da sind unsere Kunden</h1>
-
-<table class="table">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Vorname</th>
-        <th>Nachname</th>
-        <th>Postleitzahl</th>
-        <th>Strasse</th>
-        <th>Hausnummer</th>
-        <th>Geburtsdatum</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-    @{
-
-        foreach (var kunde in Model)
-        {
-            <tr>
-                <td>@(kunde.KundeId)</td>
-                <td>@(kunde.Vorname)</td>
-                <td>@(kunde.Nachname)</td>
-                <td>@(kunde.Postleitzahl)</td>
-                <td>@(kunde.Strasse)</td>
-                <td>@(kunde.Hausnummer)</td>
-                <td>@(kunde.Geburtsdatum)</td>
-            </tr>
-        }
-    }
-    
-    </tbody>
-</table>
+<h1>Willkommen zur Handyverwaltung App!</h1>

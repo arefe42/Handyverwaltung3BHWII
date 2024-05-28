@@ -48,7 +48,20 @@ public class KundeRepository
 
     public void CreateKunde(Kunde kunde) //Methode create
     {
+        NpgsqlConnection myConnection = ConnectToDB();
         
+        using NpgsqlCommand cmd = new NpgsqlCommand(
+            "INSERT INTO kunde (Vorname, Nachname, Postleitzahl, Strasse, Hausnummer, Geburtsdatum) VALUES (:v1,:v2,:v3,:v4,:v5,:v6)", myConnection);
+        
+        cmd.Parameters.AddWithValue("v1", kunde.Vorname);
+        cmd.Parameters.AddWithValue("v2", kunde.Nachname);
+        cmd.Parameters.AddWithValue("v3", kunde.Postleitzahl);
+        cmd.Parameters.AddWithValue("v4", kunde.Strasse);
+        cmd.Parameters.AddWithValue("v5", kunde.Hausnummer);
+        cmd.Parameters.AddWithValue("v6", kunde.Geburtsdatum);
+        
+
+        int rowsAffected = cmd.ExecuteNonQuery();
     }
 
     public void DeleteKunde(int kundeId) //Methode delete
