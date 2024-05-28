@@ -35,6 +35,7 @@ public class KundeRepository
             newKunde.Postleitzahl= (string) reader["Postleitzahl"];
             newKunde.Strasse = (string) reader["Strasse"];
             newKunde.Hausnummer = (string) reader["Hausnummer"];
+            
             newKunde.Geburtsdatum = (DateTime) reader["Geburtsdatum"];
             
             kunde.Add(newKunde);
