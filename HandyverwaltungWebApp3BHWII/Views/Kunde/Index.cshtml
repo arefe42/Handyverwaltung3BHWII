@@ -18,6 +18,7 @@
         <th>Strasse</th>
         <th>Hausnummer</th>
         <th>Geburtsdatum</th>
+        <th>Aktionen</th>
     </tr>
     </thead>
     <tbody>
@@ -27,13 +28,18 @@
         foreach (var kunde in Model)
         {
             <tr>
-                <td>@(kunde.KundeId)</td>
+                <std>@(kunde.KundeId)</std>
                 <td>@(kunde.Vorname)</td>
                 <td>@(kunde.Nachname)</td>
                 <td>@(kunde.Postleitzahl)</td>
                 <td>@(kunde.Strasse)</td>
                 <td>@(kunde.Hausnummer)</td>
                 <td>@(kunde.Geburtsdatum)</td>
+                <td>
+                    <a href="/Kunde/Edit?KundeId=@(kunde.KundeId)" class="btn btn-secondary"> Edit</a>
+                    <a href="/Kunde/Delete?KundeId=@(kunde.KundeId)" class="btn btn-danger"> Delete</a>
+
+                </td>
             </tr>
         }
     }

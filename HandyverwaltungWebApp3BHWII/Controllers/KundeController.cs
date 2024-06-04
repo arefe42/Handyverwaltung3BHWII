@@ -19,6 +19,16 @@ public class KundeController : Controller
     {
         return View();
     }
+    
+    public IActionResult Edit(int KundeId)
+    {
+        //repo holen
+        KundeRepository repo = new KundeRepository();
+        //kunde mit KundenId aus DB holen
+        
+        //kunde der View übergeben
+        return View();
+    }
 
     [HttpPost]
     public IActionResult SaveKunde(Kunde kunde)

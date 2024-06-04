@@ -14,6 +14,8 @@ public class KundeRepository
        return connection;
     }
     
+    public Kunde GetKunde()
+    
     public List<Kunde> GetAllKunden() //Methode read
     {
         //Connect to DB
