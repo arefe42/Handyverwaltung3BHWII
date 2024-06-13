@@ -13,8 +13,35 @@ public class KundeRepository
        connection.Open();
        return connection;
     }
-    
-    public Kunde GetKunde()
+
+    public Kunde GetKunde(int kundeId)
+    {
+        //Connect to DB
+        NpgsqlConnection myConnection = ConnectToDB();
+        //SQL Query ausführen
+        
+        using NpgsqlCommand cmd = new NpgsqlCommand("select * from kunde where kundeid = :v1;", myConnection);
+        cmd.Parameters.AddWithValue("v1", kundeId);
+        using NpgsqlDataReader reader = cmd.ExecuteReader();
+
+        Kunde newKunde = new Kunde();
+        while (reader.Read())
+        {
+            //Datensätze in Objekte umwandeln
+            newKunde.KundeId = (int) reader["KundeId"];
+            newKunde.Vorname = (string) reader["Vorname"];
+            newKunde.Nachname= (string) reader["Nachname"];
+            newKunde.Postleitzahl= (string) reader["Postleitzahl"];
+            newKunde.Strasse = (string) reader["Strasse"];
+            newKunde.Hausnummer = (string) reader["Hausnummer"];
+            
+            newKunde.Geburtsdatum = (DateTime) reader["Geburtsdatum"];
+        }
+        
+        myConnection.Close();
+        //mit return zurückgeben
+        return newKunde;
+    }
     
     public List<Kunde> GetAllKunden() //Methode read
     {
@@ -41,6 +68,7 @@ public class KundeRepository
             newKunde.Geburtsdatum = (DateTime) reader["Geburtsdatum"];
             
             kunde.Add(newKunde);
+            
         }
         //mit return zurückgeben
         
@@ -64,16 +92,44 @@ public class KundeRepository
         
 
         int rowsAffected = cmd.ExecuteNonQuery();
+        myConnection.Close();
     }
 
     public void DeleteKunde(int kundeId) //Methode delete
     {
+        NpgsqlConnection myConnection = ConnectToDB();
+        
+        using NpgsqlCommand cmd = new NpgsqlCommand(
+            "Delete From kunde where KundeId =:v1", myConnection);
+        
+        cmd.Parameters.AddWithValue("v1", kundeId);
+      
+        
+
+        int rowsAffected = cmd.ExecuteNonQuery();
+        myConnection.Close();
         
     }
 
     public void UpdateKunde(Kunde kunde) //Methode Update
     {
+        NpgsqlConnection myConnection = ConnectToDB();
         
+        
+        using NpgsqlCommand cmd = new NpgsqlCommand(
+            "UPDATE kunde SET vorname=:v1,nachname=:v2,postleitzahl=:v3,strasse=:v4,hausnummer=:v5,geburtsdatum=:v6 " +
+            "WHERE kundeId=:v7", myConnection);
+        
+        cmd.Parameters.AddWithValue("v1", kunde.Vorname);
+        cmd.Parameters.AddWithValue("v2", kunde.Nachname);
+        cmd.Parameters.AddWithValue("v3", kunde.Postleitzahl);
+        cmd.Parameters.AddWithValue("v4", kunde.Strasse);
+        cmd.Parameters.AddWithValue("v5", kunde.Hausnummer);
+        cmd.Parameters.AddWithValue("v6", kunde.Geburtsdatum);
+        cmd.Parameters.AddWithValue("v7", kunde.KundeId);
+        
+        int rowsAffected = cmd.ExecuteNonQuery();
+        myConnection.Close();
     }
     
 }

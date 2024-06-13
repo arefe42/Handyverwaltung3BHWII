@@ -25,10 +25,10 @@
     
     @{
 
-        foreach (var kunde in Model)
+        foreach (var kunde in Model)  
         {
             <tr>
-                <std>@(kunde.KundeId)</std>
+                <td>@(kunde.KundeId)</td>
                 <td>@(kunde.Vorname)</td>
                 <td>@(kunde.Nachname)</td>
                 <td>@(kunde.Postleitzahl)</td>
@@ -41,6 +41,7 @@
 
                 </td>
             </tr>
+            
         }
     }
     

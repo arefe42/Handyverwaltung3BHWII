@@ -25,9 +25,21 @@ public class KundeController : Controller
         //repo holen
         KundeRepository repo = new KundeRepository();
         //kunde mit KundenId aus DB holen
-        
+        Kunde meinKunde = repo.GetKunde(KundeId);
         //kunde der View übergeben
-        return View();
+        return View(meinKunde);
+    }
+    
+    public IActionResult DeleteKunde(Kunde kunde)
+    {
+        //Repository holen
+        KundeRepository repo = new KundeRepository();
+        
+        //Kunde speichern
+        repo.DeleteKunde(kunde.KundeId);
+        
+        //zurück zu Übersicht
+        return Redirect(url: "/Kunde");
     }
 
     [HttpPost]
@@ -38,6 +50,18 @@ public class KundeController : Controller
         
         //Kunde speichern
         repo.CreateKunde(kunde);
+        
+        //zurück zu Übersicht
+        return Redirect(url: "/Kunde");
+    }
+    
+    public IActionResult UpdateKunde(Kunde kunde)
+    {
+        //Repository holen
+        KundeRepository repo = new KundeRepository();
+        
+        //Kunde speichern
+        repo.UpdateKunde(kunde);
         
         //zurück zu Übersicht
         return Redirect(url: "/Kunde");

@@ -1,12 +1,14 @@
-﻿@{
+﻿@model Kunde
+@{
     ViewData["Title"] = "Kunde Übersicht";
 }
 
 <h1>Kunde editieren</h1>
 
-<form action="/Kunde/SaveKunde" method="post">
+<form action="/Kunde/UpdateKunde" method="post">
+    <input type="hidden" id="KundeId" name="KundeId" value="@(Model.KundeId)"/>
     <table class="table">
-    
+
         <thead>
 
         <tr>
@@ -17,27 +19,27 @@
         <tbody>
         <tr>
             <td>Vorname</td>
-            <td><input type="text" id="Vorname" name="Vorname"></td>
+            <td><input type="text" id="Vorname" name="Vorname" value="@(Model.Vorname)"></td>
         </tr>
         <tr>
             <td>Nachname</td>
-            <td><input type="text" id="Nachname" name="Nachname"></td>
+            <td><input type="text" id="Nachname" name="Nachname" value="@(Model.Nachname)"></td>
         </tr>
         <tr>
             <td>Postleitzahl</td>
-            <td><input type="text" id="Postleitzahl" name="Postleitzahl"></td>
+            <td><input type="text" id="Postleitzahl" name="Postleitzahl" value="@(Model.Postleitzahl)"></td>
         </tr>
         <tr>
             <td>Strasse</td>
-            <td><input type="text" id="Strasse" name="Strasse"></td>
+            <td><input type="text" id="Strasse" name="Strasse" value="@(Model.Strasse)"></td>
         </tr>
         <tr>
             <td>Hausnummer</td>
-            <td><input type="text" id="Hausnummer" name="Hausnummer"></td>
+            <td><input type="text" id="Hausnummer" name="Hausnummer" value="@(Model.Hausnummer)"></td>
         </tr>
         <tr>
             <td>Geburtsdatum</td>
-            <td><input type="date" id="Geburtsdatum" name="Geburtsdatum"></td>
+            <td><input asp-for="Geburtsdatum"></td>
         </tr>
         <tr>
             <td>
