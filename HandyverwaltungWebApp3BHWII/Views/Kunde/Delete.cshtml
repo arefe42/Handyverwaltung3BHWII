@@ -8,8 +8,8 @@
 <form action="/Kunde/DeleteKunde" method="post">
     <input type="hidden" id="KundeId" name="KundeId" value="@(Model.KundeId)"/>
    
-    <h2Wollen Sie die Kunde @(Model.Vorname) wirklich löschen></h2Wollen>
-    <a href="/Kunde" class="btn btn-secondary">Nein</a>
+    <h2>Wollen Sie die Kunde @(Model.Vorname) wirklich löschen?</h2>
+    <a href="/Kunde/" class="btn btn-secondary">Nein</a>
     <button class="btn btn-danger" type="submit">Ja</button>
     
 </form>

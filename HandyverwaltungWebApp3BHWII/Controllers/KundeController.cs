@@ -30,6 +30,16 @@ public class KundeController : Controller
         return View(meinKunde);
     }
     
+    public IActionResult Delete(int KundeId)
+    {
+        //repo holen
+        KundeRepository repo = new KundeRepository();
+        //kunde mit KundenId aus DB holen
+        Kunde meinKunde = repo.GetKunde(KundeId);
+        //kunde der View übergeben
+        return View(meinKunde);
+    }
+    
     public IActionResult DeleteKunde(Kunde kunde)
     {
         //Repository holen
