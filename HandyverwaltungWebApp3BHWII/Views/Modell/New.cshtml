@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "Modell Übersicht";
+    List<Produzent> alleProduzenten = (List<Produzent>)ViewData["alleProduzenten"];
+}
+<h1>Neue Modelle erstellen</h1>
+
+<form action="/Modell/SaveModell" method="post">
+    <table class="table">
+    
+        <thead>
+
+        <tr>
+            <td>Bezeichnung</td>
+            <td>Eingabe</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Mname</td>
+            <td><input type="text" id="Mname" name="Mname"></td>
+        </tr>
+        <tr>
+            <td>Preis</td>
+            <td><input type="number" id="Preis" name="Preis"></td>
+        </tr>
+        <tr>
+            <td>Veroeffentlichungsjahr</td>
+            <td><input type="date" id="Veroeffentlichungsjahr" name="Veroeffentlichungsjahr"></td>
+        </tr>
+        <tr>
+            <td>Farbe</td>
+            <td><input type="text" id="Farbe" name="Farbe"></td>
+        </tr>
+        <tr>
+            <td>Produzent</td>
+            <td>
+                <select id="produzentid" name="produzentid">
+                                @{
+                                    foreach (var producer in alleProduzenten)
+                                    {
+                                        <option value="@(producer.ProduzentId)">@(producer.Pname)</option>
+                                    }
+                                }
+                            </select>
+
+            </td>
+            
+        </tr>
+        <tr>
+            <td>
+                <a href="/Modell" class="btn btn-danger">Abbrechen</a>
+            </td>
+            <td>
+                <button class="btn btn-success" type="submit">Speichern</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>

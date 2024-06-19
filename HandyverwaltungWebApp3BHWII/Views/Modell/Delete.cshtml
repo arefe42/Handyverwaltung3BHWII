@@ -1,0 +1,13 @@
+﻿@model Modell 
+@{
+    ViewData["Title"] = "Modell Übersicht";
+}
+<h1>Modell Löschen</h1>
+
+<form action="/Modell/DeleteModell" method="post">
+    <input type="hidden" id="ModellId" name="ModellId" value="@(Model.ModellId)"/>
+    
+    <h2>Wollen Sie die Modell @(Model.Mname) wirklich löschen?</h2>
+        <a href="/Modell/" class="btn btn-secondary">Nein</a>
+        <button class="btn btn-danger" type="submit">Ja</button>
+</form>

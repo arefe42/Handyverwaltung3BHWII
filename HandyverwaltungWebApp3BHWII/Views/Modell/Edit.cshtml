@@ -1,0 +1,45 @@
+﻿@model Modell 
+@{
+    ViewData["Title"] = "Modell Übersicht";
+}
+<h1>Modell editieren</h1>
+
+<form action="/Modell/UpdateModell" method="post">
+    <input type="hidden" id="ModellId" name="ModellId" value="@(Model.ModellId)"/>
+    <table class="table">
+
+        <thead>
+
+        <tr>
+            <td>Bezeichnung</td>
+            <td>Eingabe</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Mname</td>
+            <td><input type="text" id="Mname" name="Mname" value="@(Model.Mname)"></td>
+        </tr>
+        <tr>
+            <td>Preis</td>
+            <td><input type="number" id="Preis" name="Preis" value="@(Model.Preis)"></td>
+        </tr>
+        <tr>
+            <td>Veroeffentlichungsjahr</td>
+            <td><input asp-for="Veroeffentlichungsjahr"></td>
+        </tr>
+        <tr>
+            <td>Farbe</td>
+            <td><input type="text" id="Farbe" name="Farbe" value="@(Model.Farbe)"></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="/Modell" class="btn btn-danger">Abbrechen</a>
+            </td>
+            <td>
+                <button class="btn btn-success" type="submit">Speichern</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>

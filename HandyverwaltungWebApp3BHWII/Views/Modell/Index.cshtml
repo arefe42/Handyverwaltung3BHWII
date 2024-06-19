@@ -1,0 +1,45 @@
+﻿@model List<Modell>
+
+@{
+    ViewData["Title"] = "Modell Übersicht";
+}
+<h1>Da sind unsere Modelle</h1>
+
+<a href="/Modell/New" class="btn btn-success">Neue Modelle erstellen</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Mname</th>
+        <th>Preis</th>
+        <th>Veroeffentlichungsjahr</th>
+        <th>Farbe</th>
+        <th>Aktionen</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    @{
+
+        foreach (var modelle in Model)  
+        {
+            <tr>
+                <td>@(modelle.ModellId)</td>
+                <td>@(modelle.Mname)</td>
+                <td>@(modelle.Preis)</td>
+                <td>@(modelle.Veroeffentlichungsjahr)</td>
+                <td>@(modelle.Farbe)</td>
+
+                <td>
+                    <a href="/Modell/Edit?ModellId=@(modelle.ModellId)" class="btn btn-secondary"> Edit</a>
+                    <a href="/Modell/Delete?ModellId=@(modelle.ModellId)" class="btn btn-danger"> Delete</a>
+
+                </td>
+            </tr>
+            
+        }
+    }
+    
+    </tbody>
+</table>
