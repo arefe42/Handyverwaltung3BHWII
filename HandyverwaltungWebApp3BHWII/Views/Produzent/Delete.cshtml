@@ -1,0 +1,13 @@
+﻿@model Produzent 
+@{
+    ViewData["Title"] = "Produzent Übersicht";
+}
+<h1>Produzent Löschen</h1>
+
+<form action="/Produzent/DeleteProduzent" method="post">
+    <input type="hidden" id="ProduzentId" name="ProduzentId" value="@(Model.ProduzentId)"/>
+    
+    <h2>Wollen Sie die Produzent @(Model.Pname) wirklich löschen?</h2>
+        <a href="/Produzent/" class="btn btn-secondary">Nein</a>
+        <button class="btn btn-danger" type="submit">Ja</button>
+</form>

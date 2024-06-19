@@ -1,0 +1,42 @@
+﻿@model List<Produzent>
+
+@{
+    ViewData["Title"] = "Produzent Übersicht";
+}
+<h1>Da sind unsere Produzenten</h1>
+
+<a href="/Produzent/New" class="btn btn-success">Neue Produzente erstellen</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Pname</th>
+        <th>Hauptsitz</th>
+        <th>Gruendungsjahr</th>
+        <th>Aktionen</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    @{
+
+        foreach (var produzente in Model)  
+        {
+            <tr>
+                <td>@(produzente.ProduzentId)</td>
+                <td>@(produzente.Pname)</td>
+                <td>@(produzente.Hauptsitz)</td>
+                <td>@(produzente.Gruendungsjahr)</td>
+                <td>
+                    <a href="/Produzent/Edit?ProduzentId=@(produzente.ProduzentId)" class="btn btn-secondary"> Edit</a>
+                    <a href="/Produzent/Delete?ProduzentId=@(produzente.ProduzentId)" class="btn btn-danger"> Delete</a>
+
+                </td>
+            </tr>
+            
+        }
+    }
+    
+    </tbody>
+</table>

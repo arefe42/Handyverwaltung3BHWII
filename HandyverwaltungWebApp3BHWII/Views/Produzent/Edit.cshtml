@@ -1,0 +1,41 @@
+﻿@model Produzent 
+@{
+    ViewData["Title"] = "Produzent Übersicht";
+}
+<h1>Produzent editieren</h1>
+
+<form action="/Produzent/UpdateProduzent" method="post">
+    <input type="hidden" id="ProduzentId" name="ProduzentId" value="@(Model.ProduzentId)"/>
+    <table class="table">
+
+        <thead>
+
+        <tr>
+            <td>Bezeichnung</td>
+            <td>Eingabe</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Pname</td>
+            <td><input type="text" id="Pname" name="Pname" value="@(Model.Pname)"></td>
+        </tr>
+        <tr>
+            <td>Hauptsitz</td>
+            <td><input type="text" id="Hauptsitz" name="Hauptsitz" value="@(Model.Hauptsitz)"></td>
+        </tr>
+        <tr>
+            <td>Gruendungsjahr</td>
+            <td><input asp-for="Gruendungsjahr"></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="/Produzent" class="btn btn-danger">Abbrechen</a>
+            </td>
+            <td>
+                <button class="btn btn-success" type="submit">Speichern</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>

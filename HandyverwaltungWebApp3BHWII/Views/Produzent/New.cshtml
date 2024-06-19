@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Produzent Übersicht";
+}
+<h1>Neuen Produzenter erstellen</h1>
+
+<form action="/Produzent/SaveProduzent" method="post">
+    <table class="table">
+    
+        <thead>
+
+        <tr>
+            <td>Bezeichnung</td>
+            <td>Eingabe</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Pname</td>
+            <td><input type="text" id="Pname" name="Pname"></td>
+        </tr>
+        <tr>
+            <td>Hauptsitz</td>
+            <td><input type="text" id="Hauptsitz" name="Hauptsitz"></td>
+        </tr>
+        <tr>
+            <td>Gruendungsjahr</td>
+            <td><input type="date" id="Gruendungsjahr" name="Gruendungsjahr"></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="/Produzent" class="btn btn-danger">Abbrechen</a>
+            </td>
+            <td>
+                <button class="btn btn-success" type="submit">Speichern</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
