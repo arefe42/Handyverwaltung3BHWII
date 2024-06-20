@@ -116,7 +116,7 @@ public class ModellRepository
         cmd.Parameters.AddWithValue("v2", modell.Preis);
         cmd.Parameters.AddWithValue("v3", modell.Veroeffentlichungsjahr);
         cmd.Parameters.AddWithValue("v4", modell.Farbe);
-        cmd.Parameters.AddWithValue("v4", modell.produzentid);
+        cmd.Parameters.AddWithValue("v5", modell.produzentid);
         cmd.Parameters.AddWithValue("v6", modell.ModellId);
 
        

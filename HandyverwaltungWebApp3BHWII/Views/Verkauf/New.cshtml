@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "Verkauf Übersicht";
+    List<Kunde> alleKunden = (List<Kunde>)ViewData["alleKunden"];
+}
+<h1>Neuen Verkäufer erstellen</h1>
+
+<form action="/Verkauf/SaveVerkauf" method="post">
+    <table class="table">
+    
+        <thead>
+
+        <tr>
+            <td>Bezeichnung</td>
+            <td>Eingabe</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Verkaufspreis</td>
+            <td><input type="number" id="Verkaufspreis" name="Verkaufspreis"></td>
+        </tr>
+        <tr>
+            <td>Verkauffdatum</td>
+            <td><input type="date" id="Verkauffdatum" name="Verkauffdatum"></td>
+        </tr>
+        <tr>
+            <td>Menge</td>
+            <td><input type="number" id="Menge" name="Menge"></td>
+        </tr>
+        <tr>
+            <td>Zahlungsmethode</td>
+            <td><input type="text" id="Zahlungsmethode" name="Zahlungsmethode"></td>
+        </tr>
+        <tr>
+                    <td>Kunde</td>
+                    <td>
+                        <select id="kundeid" name="kundeid">
+                                        @{
+                                            foreach (var kunde in alleKunden)
+                                            {
+                                                <option value="@(kunde.KundeId)">@(kunde.Vorname)</option>
+                                            }
+                                        }
+                                    </select>
+        
+                    </td>
+                    
+                </tr>
+        <tr>
+            <td>
+                <a href="/Verkauf" class="btn btn-danger">Abbrechen</a>
+            </td>
+            <td>
+                <button class="btn btn-success" type="submit">Speichern</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>

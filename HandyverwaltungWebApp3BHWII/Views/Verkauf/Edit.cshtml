@@ -1,0 +1,45 @@
+﻿@model Verkauf 
+@{
+    ViewData["Title"] = "Verkauf Übersicht";
+}
+<h1>Verkauf editieren</h1>
+
+<form action="/Verkauf/UpdateVerkauf" method="post">
+    <input type="hidden" id="VerkaufId" name="VerkaufId" value="@(Model.VerkaufId)"/>
+    <table class="table">
+
+        <thead>
+
+        <tr>
+            <td>Bezeichnung</td>
+            <td>Eingabe</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+                    <td>Verkaufspreis</td>
+                    <td><input type="number" id="Verkaufspreis" name="Verkaufspreis"></td>
+                </tr>
+                 <tr>
+                     <td>Verkauffdatum</td>
+                     <td><input asp-for="Verkauffdatum"></td>
+                 </tr>
+                <tr>
+                    <td>Menge</td>
+                    <td><input type="number" id="Menge" name="Menge"></td>
+                </tr>
+                 <tr>
+                     <td>Zahlungsmethode</td>
+                     <td><input type="text" id="Zahlungsmethode" name="Zahlungsmethode"></td>
+                 </tr>
+                <tr>
+                    <td>
+                        <a href="/Verkauf" class="btn btn-danger">Abbrechen</a>
+                    </td>
+                    <td>
+                        <button class="btn btn-success" type="submit">Speichern</button>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+</form>

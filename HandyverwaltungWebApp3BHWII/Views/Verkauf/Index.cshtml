@@ -1,0 +1,46 @@
+﻿@model List<Verkauf>
+
+@{
+    ViewData["Title"] = "Verkauf Übersicht";
+}
+<h1>Da sind unsere Verkäufe</h1>
+
+<a href="/Verkauf/New" class="btn btn-success">Neue Verkäufe erstellen</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Verkaufspreis</th>
+        <th>Verkauffdatum</th>
+        <th>Menge</th>
+        <th>Zahlungsmethode</th>
+        <th>Aktionen</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    @{
+
+        foreach (var verkaufe in Model)  
+        {
+            <tr>
+                <td>@(verkaufe.VerkaufId)</td>
+                <td>@(verkaufe.Verkaufspreis)</td>
+                <td>@(verkaufe.Verkauffdatum)</td>
+                <td>@(verkaufe.Menge)</td>
+                <td>@(verkaufe.Zahlungsmethode)</td>
+
+
+                <td>
+                    <a href="/Verkauf/Edit?VerkaufId=@(verkaufe.VerkaufId)" class="btn btn-secondary"> Edit</a>
+                    <a href="/Verkauf/Delete?VerkaufId=@(verkaufe.VerkaufId)" class="btn btn-danger"> Delete</a>
+
+                </td>
+            </tr>
+            
+        }
+    }
+    
+    </tbody>
+</table>

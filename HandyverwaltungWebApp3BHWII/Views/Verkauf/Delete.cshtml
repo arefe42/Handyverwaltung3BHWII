@@ -1,0 +1,13 @@
+﻿@model Verkauf 
+@{
+    ViewData["Title"] = "Verkauf Übersicht";
+}
+<h1>Verkauf Löschen</h1>
+
+<form action="/Verkauf/DeleteVerkauf" method="post">
+    <input type="hidden" id="VerkaufId" name="VerkaufId" value="@(Model.VerkaufId)"/>
+    
+    <h2>Wollen Sie die Verkauf @(Model.Verkaufspreis) wirklich löschen?</h2>
+        <a href="/Verkauf/" class="btn btn-secondary">Nein</a>
+        <button class="btn btn-danger" type="submit">Ja</button>
+</form>
